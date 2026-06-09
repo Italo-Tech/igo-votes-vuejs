@@ -4,14 +4,14 @@ import { pollService } from '@/services/pollService'
 
 export const usePollStore = defineStore('poll', () => {
   // Estado reativo compartilhado entre todos os componentes que usarem esta store
-  const poll = ref(null)       // dados da enquete (título, opções...)
-  const results = ref([])      // opções enriquecidas com contagem de votos
-  const userVote = ref(null)   // id da opção que o usuário escolheu
-  const loading = ref(false)   // controla exibição do spinner de carregamento
-  const submitting = ref(false) // controla estado do botão "Votar" durante o envio
-  const error = ref(null)      // mensagem de erro exibida na interface
+  const poll = ref(null)
+  const results = ref([])
+  const userVote = ref(null)
+  const loading = ref(false)
+  const submitting = ref(false)
+  const error = ref(null)
 
-  // Soma todos os votos — recalcula automaticamente sempre que results mudar
+  // Soma todos os votos e recalcula automaticamente sempre que results mudar
   const totalVotes = computed(() =>
     results.value.reduce((sum, option) => sum + option.votes, 0)
   )
@@ -38,7 +38,6 @@ export const usePollStore = defineStore('poll', () => {
     } catch {
       error.value = 'Erro ao carregar a enquete. Tente novamente.'
     } finally {
-      // finally garante que loading sempre volta para false, mesmo em caso de erro
       loading.value = false
     }
   }
@@ -65,7 +64,6 @@ export const usePollStore = defineStore('poll', () => {
       userVote.value = optionId
     } catch {
       error.value = 'Erro ao enviar o voto. Tente novamente.'
-      // Re-lança para que a view possa reagir (ex: não exibir o toast de sucesso)
       throw new Error('Vote submission failed')
     } finally {
       submitting.value = false
@@ -76,7 +74,7 @@ export const usePollStore = defineStore('poll', () => {
   function resetVote() {
     pollService.clearVote()
     userVote.value = null
-    results.value = [] // força nova busca ao retornar para a tela de resultados
+    results.value = []
   }
 
   return {

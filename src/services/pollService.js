@@ -1,4 +1,4 @@
-// Dados fixos da enquete — substitua por uma chamada real de API no futuro
+// Dados mocados da enquete
 const MOCK_POLL = {
   id: 1,
   title: 'Melhor formato para o próximo evento?',
@@ -11,25 +11,23 @@ const MOCK_POLL = {
   ]
 }
 
-// Contadores iniciais para a demo já ter dados ao abrir pela primeira vez
+// Contadores de votos iniciais
 const INITIAL_VOTES = { 1: 45, 2: 44, 3: 20 }
 
 // Chaves do localStorage para isolar os dados desta aplicação
-const STORAGE_VOTE_KEY = 'igo_poll_vote'   // armazena o id da opção votada pelo usuário
-const STORAGE_VOTES_KEY = 'igo_poll_votes' // armazena o objeto com todos os contadores
+const STORAGE_VOTE_KEY = 'igo_poll_vote'
+const STORAGE_VOTES_KEY = 'igo_poll_votes'
 
-// Simula a latência de uma requisição HTTP real
+// Simulação de delay
 function delay(ms = 600) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-// Lê os contadores do localStorage; na primeira execução usa INITIAL_VOTES
 function loadVotes() {
   const stored = localStorage.getItem(STORAGE_VOTES_KEY)
   return stored ? JSON.parse(stored) : { ...INITIAL_VOTES }
 }
 
-// Serializa e persiste os contadores atualizados
 function saveVotes(votes) {
   localStorage.setItem(STORAGE_VOTES_KEY, JSON.stringify(votes))
 }
@@ -61,7 +59,7 @@ export const pollService = {
     }))
   },
 
-  // Leitura síncrona — não precisa de delay pois é apenas uma leitura de memória local
+  // Leitura síncrona, não precisa de delay pois é apenas uma leitura de memória local
   getUserVote() {
     const stored = localStorage.getItem(STORAGE_VOTE_KEY)
     return stored ? Number(stored) : null
