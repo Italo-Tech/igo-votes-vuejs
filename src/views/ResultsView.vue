@@ -64,21 +64,5 @@ function handleVoteAgain() {
 }
 </script>
 
-<style scoped>
-.results-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.total-votes {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  text-align: center;
-}
-
-.total-votes strong {
-  color: var(--color-text);
-  font-weight: 700;
-}
-</style>
+<style src="@/assets/styles/components/LoadingSpinner.css"></style>
+<style src="@/assets/styles/pages/ResultsPage.css"></style>

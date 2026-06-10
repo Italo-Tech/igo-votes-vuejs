@@ -1,0 +1,11 @@
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vote-hint {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
