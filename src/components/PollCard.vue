@@ -25,3 +25,66 @@ defineProps({
   }
 })
 </script>
+
+<style scoped>
+.poll-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  width: 100%;
+  max-width: 560px;
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
+}
+
+.poll-card__header {
+  padding: 32px 32px 24px;
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
+}
+
+.poll-card__title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.poll-card__description {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.poll-card__body {
+  padding: 24px 32px;
+}
+
+.poll-card__footer {
+  padding: 20px 32px 28px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .poll-card__header {
+    padding: 24px 20px 18px;
+  }
+
+  .poll-card__body {
+    padding: 20px;
+  }
+
+  .poll-card__footer {
+    padding: 16px 20px 24px;
+  }
+
+  .poll-card__title {
+    font-size: 1.2rem;
+  }
+}
+</style>
