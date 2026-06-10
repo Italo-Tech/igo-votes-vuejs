@@ -69,3 +69,40 @@ A inteligência artificial (Claude) foi utilizada como apoio para:
 - **Sugestões de componentização** — identificação dos limites corretos entre componentes
 
 Toda a validação, adaptação e tomada de decisão da solução foi realizada pelo dev, garantindo consistência aos requisitos e qualidade do código entregue.
+
+---
+
+## Estrutura do projeto
+
+```
+src/
+├── App.vue
+├── main.js
+├── router/
+│   └── index.js
+├── stores/
+│   └── pollStore.js
+├── services/
+│   └── pollService.js
+├── components/
+│   ├── PollCard.vue
+│   ├── VoteOption.vue
+│   ├── ResultItem.vue
+│   └── ProgressBar.vue
+├── views/
+│   ├── VotingView.vue
+│   └── ResultsView.vue
+└── assets/
+    └── styles/
+        ├── global.css
+        ├── components/
+        │   ├── LoadingSpinner.css
+        │   ├── PollCard.css
+        │   ├── ProgressBar.css
+        │   ├── ResultItem.css
+        │   ├── Toast.css
+        │   └── VoteOption.css
+        └── pages/
+            ├── ResultsPage.css
+            └── VotingPage.css
+```
