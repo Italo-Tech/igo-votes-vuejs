@@ -2,6 +2,8 @@
 
 Aplicação Vue 3 para votação em tempo real com simulação de API local, persistência via localStorage e exibição de resultados com barras de progresso animadas.
 
+![Preview da aplicação](./src/assets/img/home.png)
+
 ## Como rodar
 
 ### Instalação
